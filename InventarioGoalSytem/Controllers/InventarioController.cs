@@ -47,7 +47,7 @@ namespace InventarioGoalSytem.Controllers
                 {
                     Tipo = Regex.Replace(tipo, "[^0-9a-zA-Z]+", ""),
                     Nombre = Regex.Replace(nombre, "[^0-9a-zA-Z]+", ""),
-                    FechaCaducidad = DateTime.Parse(fecha).ToString("yyyy-MM-dd")
+                    FechaCaducidad = DateTime.Parse(fecha).ToString("dd-MM-yyyy")
                 };
 
                 if (!inventario.Exists(x => x.Nombre == elemento.Nombre))

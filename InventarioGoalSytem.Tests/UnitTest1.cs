@@ -12,9 +12,9 @@ namespace InventarioGoalSytem.Tests
     {
         List<Elemento> inventarioTest = new List<Elemento>
         {
-            new Elemento { Tipo = "Coche", Nombre = "Toyota", FechaCaducidad = DateTime.Now.AddDays(10).ToString("yyyy-MM-dd") },
-            new Elemento { Tipo = "Movil", Nombre = "Samsung", FechaCaducidad = DateTime.Now.AddDays(-10).ToString("yyyy-MM-dd") },
-            new Elemento { Tipo = "Comida", Nombre = "Pollo", FechaCaducidad = DateTime.Now.AddDays(10).ToString("yyyy-MM-dd") }
+            new Elemento { Tipo = "Coche", Nombre = "Toyota", FechaCaducidad = DateTime.Now.AddDays(10).ToString("dd-MM-yyyy") },
+            new Elemento { Tipo = "Movil", Nombre = "Samsung", FechaCaducidad = DateTime.Now.AddDays(-10).ToString("dd-MM-yyyy") },
+            new Elemento { Tipo = "Comida", Nombre = "Pollo", FechaCaducidad = DateTime.Now.AddDays(10).ToString("dd-MM-yyyy") }
         };
 
         InventarioController controller = new InventarioController();
@@ -40,7 +40,7 @@ namespace InventarioGoalSytem.Tests
         [TestMethod]
         public void IntroducirElemento()
         {
-            Assert.IsTrue(controller.InsertarElemento("PC", "MSI", DateTime.Now.ToString("yyyy-MM-dd")));
+            Assert.IsTrue(controller.InsertarElemento("PC", "MSI", DateTime.Now.ToString("dd-MM-yyyy")));
             InventarioController.inventario.Clear();
         }
 
