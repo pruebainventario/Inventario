@@ -14,7 +14,7 @@ namespace InventarioGoalSytem.Controllers
     [AllowAnonymous]
     public class LoginController : ApiController
     {
-        [HttpPost]
+        [HttpGet]
         public bool Login(string user, string password)
         {
             byte[] data = System.Text.Encoding.ASCII.GetBytes(password);

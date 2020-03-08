@@ -8,7 +8,7 @@ Consta de una página de login y el inventario, solo se puede tener acceso al inv
 de Login e Inventario en dos controladores distintos, ya que son módulos con funcionalidades distintas.
 
 El módulo de Login genera un token que se almacena en una cookie, esto permite que se pueda utilizar el módulo del Inventario. La validación 
-de la contraseña está cifrada con SHA1, por lo que solo se podra tener acceso si se conoce la contraseña.
+de la contraseña está cifrada con AES, por lo que solo se podra tener acceso si se conoce la contraseña.
 
 El módulo del Inventario permite listar el inventario, sacar un elemento por nombre e introducir nuevos elementos. En los elementos 
 que se vayan a crear no se admiten caracteres especiales ni espacios en blanco. Tampoco te permite insertar dos elementos con el mismo 

@@ -14,13 +14,13 @@ namespace InventarioGoalSytem.Controllers
     {
         public static List<Elemento> inventario = new List<Elemento>();
 
-        [HttpPost]
+        [HttpGet]
         public List<Elemento> GetInventario()
         {
             return inventario;
         }
 
-        [HttpPost]
+        [HttpGet]
         public string SacarElemento(string nombre)
         {
             string result = string.Empty;
@@ -38,7 +38,7 @@ namespace InventarioGoalSytem.Controllers
             return result;
         }
 
-        [HttpPost]
+        [HttpGet]
         public bool InsertarElemento(string tipo, string nombre, string fecha)
         {
             if (!string.IsNullOrWhiteSpace(tipo) && !string.IsNullOrWhiteSpace(nombre) && !string.IsNullOrWhiteSpace(fecha) && DateTime.TryParse(fecha, out _))

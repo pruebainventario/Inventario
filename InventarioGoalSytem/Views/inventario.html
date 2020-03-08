@@ -52,11 +52,7 @@
     });
 
     function getInventario() {
-        $.ajax(
-            {
-                url: 'api/inventario/GetInventario',
-                type: "POST"
-            })
+        $.getJSON('api/inventario/GetInventario')
             .done(function (data) {
                 $('#tinventario').html('')
                 $.each(data, function (i, item) {
@@ -79,11 +75,7 @@
         var regex = /^[A-Za-z0-9 '.-]+$/;
 
         if (regex.test(nombre)) {
-            $.ajax(
-                {
-                    url: 'api/inventario/SacarElemento?nombre=' + nombre,
-                    type: "POST"
-                })
+            $.getJSON('api/inventario/SacarElemento?nombre=' + nombre)
                 .done(function (data) {
                     alert(data);
                     getInventario();
@@ -109,11 +101,7 @@
         var regex = /^[A-Za-z0-9 '.-]+$/;
 
         if (regex.test(nombre) && regex.test(tipo) && regex.test(fecha)) {
-            $.ajax(
-                {
-                    url: 'api/inventario/InsertarElemento?tipo=' + tipo + '&nombre=' + nombre + '&fecha=' + fecha,
-                    type: "POST"
-                })
+            $.getJSON('api/inventario/InsertarElemento?tipo=' + tipo + '&nombre=' + nombre + '&fecha=' + fecha)
                 .done(function (data) {
                     if (data) {
                         getInventario();

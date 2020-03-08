@@ -22,13 +22,9 @@
         var user = $('#user').val();
         var password = $('#password').val();
         var regex = /^[A-Za-z0-9 '.-]+$/;
-
+        
         if (regex.test(user) && regex.test(password)) {
-            $.ajax(
-                {
-                    url: 'api/login/Login/?user=' + user + '&password=' + password,
-                    type: "POST"
-                })
+            $.getJSON('api/login/Login/?user=' + user + '&password=' + password)
                 .done(function (data) {
                     if (data) {
                         $("#main").load('./Views/inventario.html');
