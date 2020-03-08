@@ -11,8 +11,8 @@ El módulo de Login genera un token que se almacena en una cookie, esto permite q
 de la contraseña está cifrada con SHA1, por lo que solo se podra tener acceso si se conoce la contraseña.
 
 El módulo del Inventario permite listar el inventario, sacar un elemento por nombre e introducir nuevos elementos. En los elementos 
-que se vayan a crear no se admiten caracteres especiales ni espacios en blanco. Si algún elemento está caducado aparecerá "Caducado"
-junto al elemento.
+que se vayan a crear no se admiten caracteres especiales ni espacios en blanco. Tampoco te permite insertar dos elementos con el mismo 
+nombre. Si algún elemento está caducado aparecerá "Caducado" junto al elemento.
 
 También cuenta con una pequeña parte de test Unitarios, en los que se prueban algunas funcionalidades.
 

@@ -21,24 +21,30 @@
         $("#entrar").attr("disabled", true);
         var user = $('#user').val();
         var password = $('#password').val();
+        var regex = /^[A-Za-z0-9 '.-]+$/;
 
-        $.ajax(
-            {
-                url: 'api/login/Login/?user=' + user + '&password=' + password,
-                type: "POST"
-            })
-            .done(function (data) {
-                if (data) {
-                    $("#main").load('./Views/inventario.html');
-                }
-                else {
-                    alert("Contraseña incorrecta");
+        if (regex.test(user) && regex.test(password)) {
+            $.ajax(
+                {
+                    url: 'api/login/Login/?user=' + user + '&password=' + password,
+                    type: "POST"
+                })
+                .done(function (data) {
+                    if (data) {
+                        $("#main").load('./Views/inventario.html');
+                    }
+                    else {
+                        alert("Contraseña incorrecta");
+                        $("#entrar").attr("disabled", false);
+                    }
+                })
+                .fail(function (data) {
+                    alert("Error!");
                     $("#entrar").attr("disabled", false);
-                }
-            })
-            .fail(function (data) {
-                alert("Error!");
-                $("#entrar").attr("disabled", false);
-            });
+                });
+        } else {
+            alert('Contraseña no válida');
+            $("#entrar").attr("disabled", false);
+        }
     }
 </script>

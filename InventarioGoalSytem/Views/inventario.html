@@ -74,6 +74,7 @@
     }
 
     function sacar() {
+        $("#sacar").attr("disabled", true);
         var nombre = $('#nombreElemento').val();
         var regex = /^[A-Za-z0-9 '.-]+$/;
 
@@ -86,18 +87,21 @@
                 .done(function (data) {
                     alert(data);
                     getInventario();
-
+                    $("#sacar").attr("disabled", false);
                 })
                 .fail(function (jqXHR, textStatus, err) {
                     alert('Error: ' + err);
+                    $("#sacar").attr("disabled", false);
                 });
         } else {
             alert('Datos incorrectos!');
+            $("#sacar").attr("disabled", false);
         }
 
     }
 
     function insertar() {
+        $("#insertar").attr("disabled", true);
         var nombre = $('#nombre').val();
         var tipo = $('#tipo').val();
         var fecha = $('#fecha').val();
@@ -113,16 +117,20 @@
                 .done(function (data) {
                     if (data) {
                         getInventario();
+                        $("#insertar").attr("disabled", false);
                     }
                     else {
                         alert("El elemento no se ha insertado");
+                        $("#insertar").attr("disabled", false);
                     }
                 })
                 .fail(function (jqXHR, textStatus, err) {
                     alert('Error: ' + err);
+                    $("#insertar").attr("disabled", false);
                 });
         } else {
             alert("Datos incorrectos!");
+            $("#insertar").attr("disabled", false);
         }
     }
 </script>
